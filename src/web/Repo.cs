@@ -9,12 +9,12 @@ namespace web
     public class Repo
     {
         private string connectionString = "Data Source=Tonya-PC-2019;Initial Catalog=HATCH;Integrated Security=True";
-    public Repo()
-    {
+        public Repo()
+        {
         }
 
         public string GetIndividual(int IndividualId)
-    {
+        {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -36,7 +36,7 @@ namespace web
             }
             catch (SqlException e)
             {
-                return "shit";
+                return e.Message;
             }
 
             return "nothing";
