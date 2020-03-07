@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED66AF4B-1EEA-4300-98D8-2A3AA20F96B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hatch-web", "src\web\hatch-web.csproj", "{5B6E9CB6-15E9-49E9-959A-AA48DC07D982}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hatch_web", "src\web\hatch_web.csproj", "{5B6E9CB6-15E9-49E9-959A-AA48DC07D982}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5B6E9CB6-15E9-49E9-959A-AA48DC07D982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,7 +30,13 @@ Global
 		{5B6E9CB6-15E9-49E9-959A-AA48DC07D982}.Release|x86.ActiveCfg = Release|Any CPU
 		{5B6E9CB6-15E9-49E9-959A-AA48DC07D982}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5B6E9CB6-15E9-49E9-959A-AA48DC07D982} = {ED66AF4B-1EEA-4300-98D8-2A3AA20F96B6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {014B1BBD-A3EF-454C-B07D-BC1B7262EBD8}
 	EndGlobalSection
 EndGlobal
