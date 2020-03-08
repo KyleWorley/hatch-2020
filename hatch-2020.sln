@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED66AF4B-1EE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hatch_web", "src\web\hatch_web.csproj", "{5B6E9CB6-15E9-49E9-959A-AA48DC07D982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "business", "src\business\business.csproj", "{AF387A91-CA10-4359-AA65-0143DE94BF19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "business", "src\business\business.csproj", "{AF387A91-CA10-4359-AA65-0143DE94BF19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data", "src\data\data.csproj", "{6F4D50F3-1D37-4350-B521-E85A3DBC3544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "data", "src\data\data.csproj", "{6F4D50F3-1D37-4350-B521-E85A3DBC3544}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

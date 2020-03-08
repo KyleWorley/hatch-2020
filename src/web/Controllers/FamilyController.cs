@@ -45,11 +45,13 @@ namespace Hatch.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Family> GetFamily(int individualId)
+        public RedirectToPageResult GetFamily(int individualId)
         {
             var family = _repo.GetFamily(individualId);
 
-            return new ActionResult<Family>(family);
+            return new RedirectToPageResult("Index.cshtml");
         }
+
+
     }
 }

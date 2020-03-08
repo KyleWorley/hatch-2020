@@ -10,7 +10,7 @@ namespace Hatch.Data.Repositories
 {
     public class Repo
     {
-        private string connectionString = "Data Source=Tonya-PC-2019;Initial Catalog=HATCH;Integrated Security=True";
+        private string connectionString = "Data Source=Tonya-PC-2019;Initial Catalog=HATCH;Integrated Security=True;User Id=Everyone;password=good_password";
         public Repo()
         {
         }

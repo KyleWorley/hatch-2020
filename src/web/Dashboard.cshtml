@@ -1,0 +1,15 @@
+﻿@page
+@model hatch_web.IndexModel
+@{
+	var dude = Model.OnGet();
+	<ul>
+		@foreach (var thing in dude.Individuals)
+		{
+			<li>
+				@thing.Value.Name
+			</li>
+		}
+	</ul>
+
+
+}
