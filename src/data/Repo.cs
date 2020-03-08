@@ -15,7 +15,7 @@ namespace Hatch.Data.Repositories
         {
         }
 
-        public Family GetIndividual(int individualId)
+        public Family GetFamily(int individualId)
         {
             var family = new Family();
             try
@@ -34,10 +34,18 @@ namespace Hatch.Data.Repositories
                     {
                         while (rdr.Read())
                         {
+                            bool? living = null;
+                            try
+                            {
+                                living = rdr.GetBoolean("living");
+                            }
+                            catch
+                            {
+
+                            }
                             var localIndividualId = (int)rdr["rec_id"];
                             var name = (string)rdr["name"];
-                            var sex = (Sex)rdr["sex"];
-                            var living = (bool)rdr["living"];
+                            var sex = (Sex)Enum.Parse(typeof(Sex), (string)rdr["sex"]);
 
                             if (!family.Individuals.ContainsKey(localIndividualId))
                             {
@@ -45,7 +53,8 @@ namespace Hatch.Data.Repositories
                                 {
                                     Name = name,
                                     Sex = sex,
-                                    Living = living
+                                    Living = living,
+                                    Id = localIndividualId
                                 });
                             }
                         }
@@ -58,9 +67,9 @@ namespace Hatch.Data.Repositories
                             var reportingIndividuailId = (int)rdr["fk_reporting_individual"];
                             var relation = (RelationType)rdr["relation_1_to_2_type_cd"];
 
-                            if(family.Individuals.ContainsKey(localIndividualId1))
+                            if (family.Individuals.ContainsKey(localIndividualId1))
                             {
-                                if(!family.Individuals[localIndividualId1].Relations.ContainsKey(localIndividualId2))
+                                if (!family.Individuals[localIndividualId1].Relations.ContainsKey(localIndividualId2))
                                 {
                                     family.Individuals[localIndividualId1].Relations.Add(localIndividualId2, new Relation
                                     {

@@ -16,7 +16,7 @@ namespace data.Models
         public int Id { get; set; }
 
         public string Name { get; set; }
-        public bool Living { get; set; }
+        public bool? Living { get; set; }
 
         /// <summary>
         /// Gets/sets the sex of the Individual

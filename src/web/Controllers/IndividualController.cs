@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using hatch_web.Models;
+using data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -23,22 +23,7 @@ namespace Hatch.Web.Controllers
         [HttpGet]
         public IEnumerable<Individual> GetIndividuals()
         {
-            var test = new Individual() 
-            {
-                Id = new Guid(),
-                Sex = new string("M"),
-                Diseases = new List<Disease>(),
-                DeathAge = 10
-            };
-            var test1 = new Individual()
-            {
-                Id = new Guid(),
-                Sex = new string("F"),
-                Diseases = new List<Disease>(),
-                DeathAge = 51
-            };
-
-            Individual[] retval = new Individual[] {test, test1};
+            Individual[] retval = new Individual[] { };
 
             return retval;
         }
@@ -46,15 +31,7 @@ namespace Hatch.Web.Controllers
         [HttpGet("{id}")]
         public ActionResult<Individual> GetIndividuals(int id)
         {
-            var test = new Individual()
-            {
-                Id = new Guid(),
-                Sex = new string("M"),
-                Diseases = new List<Disease>(),
-                DeathAge = 10
-            };
-
-            return test;
+            return new ActionResult<Individual>(new Individual());
         }
     }
 }

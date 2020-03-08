@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using data.Models;
 using Hatch.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,17 +15,19 @@ namespace Hatch.Web.Controllers
     public class FamilyController : ControllerBase
     {
         private readonly ILogger<FamilyController> _logger;
+        private readonly Repo _repo;
 
         public FamilyController(ILogger<FamilyController> logger)
         {
             _logger = logger;
+            _repo = new Repo();
         }
 
         [HttpGet]
         public IEnumerable<Family> GetFamily()
         {
             var testShit = new Repo();
-            testShit.GetIndividual(1);
+            testShit.GetFamily(1);
             var test = new Family() 
             {
             };
@@ -42,9 +45,11 @@ namespace Hatch.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Family> GetFamily(int id)
+        public ActionResult<Family> GetFamily(int individualId)
         {
-            return new Family();
+            var family = _repo.GetFamily(individualId);
+
+            return new ActionResult<Family>(family);
         }
     }
 }
