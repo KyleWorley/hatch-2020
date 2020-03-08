@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace hatch_web.Domain
+namespace Hatch.Data.Domain
 {
     public enum RelationType
     {

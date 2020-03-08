@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace web
+namespace Hatch.Data.Repositories
 {
     public class Repo
     {
