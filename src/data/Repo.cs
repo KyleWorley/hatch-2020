@@ -22,7 +22,7 @@ namespace Hatch.Data.Repositories
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("CustOrderHist", conn);
+                    SqlCommand cmd = new SqlCommand("usp_family_get_by_individual", conn);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 

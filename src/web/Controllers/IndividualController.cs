@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using hatch_web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -26,14 +27,14 @@ namespace Hatch.Web.Controllers
             {
                 Id = new Guid(),
                 Sex = new string("M"),
-                Diseases = new List<string>(),
+                Diseases = new List<Disease>(),
                 DeathAge = 10
             };
             var test1 = new Individual()
             {
                 Id = new Guid(),
                 Sex = new string("F"),
-                Diseases = new List<string>(),
+                Diseases = new List<Disease>(),
                 DeathAge = 51
             };
 
@@ -49,7 +50,7 @@ namespace Hatch.Web.Controllers
             {
                 Id = new Guid(),
                 Sex = new string("M"),
-                Diseases = new List<string>(),
+                Diseases = new List<Disease>(),
                 DeathAge = 10
             };
 

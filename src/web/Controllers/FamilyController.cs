@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Hatch.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -22,6 +23,8 @@ namespace Hatch.Web.Controllers
         [HttpGet]
         public IEnumerable<Family> GetFamily()
         {
+            var testShit = new Repo();
+            testShit.GetIndividual(1);
             var test = new Family() 
             {
             };

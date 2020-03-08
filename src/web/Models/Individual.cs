@@ -1,3 +1,4 @@
+using hatch_web.Models;
 using System;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ namespace Hatch.Web
         /// <summary>
         /// Gets/sets the list of diseases
         /// </summary>
-        public List<string> Diseases { get; set; }
+        public List<Disease> Diseases { get; set; }
 
 
         /// <summary>
