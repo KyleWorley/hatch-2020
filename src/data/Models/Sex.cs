@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Hatch.Data.Domain
+namespace data.Models
 {
-    public enum RelationType
+    public enum Sex
     {
-        Parent = 1,
-        Child = 2,
-        Mate = 3
+        F,
+        M
     }
 }

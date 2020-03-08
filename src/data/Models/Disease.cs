@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace hatch_web.Models
+namespace data.Models
 {
     public class Disease
     {

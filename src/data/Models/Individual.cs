@@ -1,20 +1,27 @@
-using hatch_web.Models;
+using data.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Hatch.Web 
+namespace data.Models
 {
-    public class Individual 
+    public class Individual
     {
+        public Individual()
+        {
+            Relations = new Dictionary<int, Relation>();
+        }
         /// <summary>
         /// Gets/sets the Individual's Id
         /// </summary>
-        public Guid Id { get; set; }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        public bool Living { get; set; }
 
         /// <summary>
         /// Gets/sets the sex of the Individual
         /// </summary>
-        public string Sex { get; set; }
+        public Sex Sex { get; set; }
 
         /// <summary>
         /// Gets/sets the list of diseases
@@ -24,8 +31,10 @@ namespace Hatch.Web
 
         /// <summary>
         /// Get/sets the age of death
-        /// </summary>
+        /// </summary>        
         public int? DeathAge { get; set; }
+
+        public Dictionary<int, Relation> Relations { get; set; }
 
     }
 }

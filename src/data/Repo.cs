@@ -1,4 +1,5 @@
-﻿using System;
+﻿using data.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,8 +15,9 @@ namespace Hatch.Data.Repositories
         {
         }
 
-        public string GetIndividual(int individualId)
+        public Family GetIndividual(int individualId)
         {
+            var family = new Family();
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -32,36 +34,67 @@ namespace Hatch.Data.Repositories
                     {
                         while (rdr.Read())
                         {
-                            var localIndividualId = rdr["rec_id"];
-                            var name = rdr["name"];
-                            var sex = rdr["sex"];
-                            var living = rdr["living"];
+                            var localIndividualId = (int)rdr["rec_id"];
+                            var name = (string)rdr["name"];
+                            var sex = (Sex)rdr["sex"];
+                            var living = (bool)rdr["living"];
+
+                            if (!family.Individuals.ContainsKey(localIndividualId))
+                            {
+                                family.Individuals.Add(localIndividualId, new Individual
+                                {
+                                    Name = name,
+                                    Sex = sex,
+                                    Living = living
+                                });
+                            }
                         }
 
                         rdr.NextResult();
                         while (rdr.Read())
                         {
-                            var localIndividualId1 = rdr["fk_individual_1"];
-                            var localIndividualId2 = rdr["fk_individual_2"];
-                            var reportingIndividuailId = rdr["fk_reporting_individual"];
-                            var relation = rdr["relation_1_to_2_type_cd"];
+                            var localIndividualId1 = (int)rdr["fk_individual_1"];
+                            var localIndividualId2 = (int)rdr["fk_individual_2"];
+                            var reportingIndividuailId = (int)rdr["fk_reporting_individual"];
+                            var relation = (RelationType)rdr["relation_1_to_2_type_cd"];
+
+                            if(family.Individuals.ContainsKey(localIndividualId1))
+                            {
+                                if(!family.Individuals[localIndividualId1].Relations.ContainsKey(localIndividualId2))
+                                {
+                                    family.Individuals[localIndividualId1].Relations.Add(localIndividualId2, new Relation
+                                    {
+                                        ReportedBy = reportingIndividuailId,
+                                        Type = relation
+                                    });
+                                }
+                            }
                         }
 
                         rdr.NextResult();
                         while (rdr.Read())
                         {
-                            var disease = rdr["name"];
-                            var localIndividualId = rdr["fk_individual"];
+                            var disease = (string)rdr["name"];
+                            var localIndividualId = (int)rdr["fk_individual"];
+                            var ageOfOnset = (int)rdr["age_of_onset"];
+
+                            if (family.Individuals.ContainsKey(localIndividualId))
+                            {
+                                family.Individuals[localIndividualId].Diseases.Add(new Disease
+                                {
+                                    AgeOfOnSet = ageOfOnset,
+                                    Name = disease
+                                });
+                            }
                         }
                     }
                 }
             }
             catch (SqlException e)
             {
-                return e.Message;
             }
 
-            return "nothing";
+            return family;
         }
     }
 }
